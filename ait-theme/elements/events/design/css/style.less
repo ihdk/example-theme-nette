@@ -1,0 +1,16 @@
+
+@import "../../../@common/common.less";
+
+.textBgColor() when (iscolor(@bg-color))		{ background: fade(hsl(hue(@bg-color), saturation(@bg-color), 8%), 75%) padding-box; }
+
+#@{el}-main{
+
+	.layout-box .item			{ .ltoCustomColor(); }
+	.layout-box a .item-text	{ .textBgColor(); }
+
+}
+
+
+.@{el}{
+	clear:both;
+}

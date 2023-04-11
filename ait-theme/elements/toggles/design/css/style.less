@@ -1,0 +1,73 @@
+
+@import "../../../@common/common.less";
+
+.contentBackground() when (iscolor(@toggleBackgroundColor))			{ background: @toggleBackgroundColor; }
+.lightenBackground() when (iscolor(@toggleBackgroundColor))			{ background: lighten(@toggleBackgroundColor, 10%); }
+
+.borderColor() when (iscolor(@toggleBackgroundColor))				{ border-color: @toggleBackgroundColor; }
+.lightenborderColor() when (iscolor(@toggleBackgroundColor))		{ border-color: lighten(@toggleBackgroundColor, 20%); }
+
+.iconColor() when (iscolor(@toggleIconColor))						{ color: @toggleIconColor; }
+
+
+#@{el}-main
+{
+	/* Responsive tabs */
+
+	&.elm-toggles-main .responsive-tabs-select,
+	&.elm-toggles-main .ait-tabs .ait-widget-content 				{ .contentBackground(); }
+
+	.responsiveBgBorderless() when (iscolor(@toggleBackgroundColor)) {
+		&.elm-toggles-main .responsive-tabs-select					{ border: none; }
+		&.elm-toggles-main .ait-tabs .ait-widget-content			{ border-left: none; border-bottom: none; border-right: none; }
+	}.responsiveBgBorderless();
+
+	/* Horizontal tabs */
+
+	.hTabs() when (iscolor(@toggleBackgroundColor)) {
+		.ait-tabs-horizontal										{ .contentBackground(); border-radius: 6px; overflow: hidden; }
+		.ait-tabs-horizontal .tabs-wrapper ul.ait-tabs-nav			{ padding: 0 40px; }
+		.ait-tabs-horizontal .tabs-wrapper ul.ait-tabs-nav li a		{ padding-top: 20px; }
+
+		.ait-tabs-horizontal .ait-widget-content					{ padding: 40px; }
+	}.hTabs();
+
+	.ait-tabs-horizontal .tabs-wrapper ul.ait-tabs-nav li a span 	{ .iconColor(); }
+
+	/* Toggle & Accordion */
+
+	.toggles() when (iscolor(@toggleBackgroundColor)) {
+		.type-toggle,
+		.type-accordion { .contentBackground(); border-radius: 6px; overflow: hidden; }
+
+		.toggle-header .toggle-title 		{ padding: 15px 30px 15px 15px; }
+		.toggle-header .ait-icon			{ right: 20px; }
+
+		.type-toggle .toggle-container,
+		.type-accordion .toggle-container	{ padding-left: 15px; padding-right: 15px; }
+	}.toggles();
+
+	.toggle-header .toggle-title .icon 	{ .iconColor() }
+
+	/* Vertical tabs */
+
+	.vTabs() when (iscolor(@toggleBackgroundColor)) {
+		&.elm-toggles-main .ait-tabs-vertical .ait-widget-content 	{ background: none; }
+		&.elm-toggles-main .ait-tabs-vertical:before 				{ .contentBackground(); .borderColor(); }
+	}.vTabs();
+
+	&.elm-toggles-main .ait-tabs-vertical ul.ait-tabs-nav li.ui-state-active a { .contentBackground(); }
+	&.elm-toggles-main .ait-tabs-vertical li .ait-tab-hover 		{ .contentBackground(); color: @titlesAltColor; .lightenborderColor(); }
+
+	&.elm-toggles-main .ait-tabs-vertical ul.ait-tabs-nav li a 		{ .lightenBackground(); .lightenborderColor(); }
+	&.elm-toggles-main .ait-tabs-vertical ul.ait-tabs-nav li 		{ .borderColor(); }
+
+	&.elm-toggles-main .ait-tabs-vertical  .tabs-wrapper .selected 	{ .contentBackground(); color: @titlesAltColor; .lightenborderColor(); }
+
+}
+
+
+
+.@{el}{
+	clear:both;
+}

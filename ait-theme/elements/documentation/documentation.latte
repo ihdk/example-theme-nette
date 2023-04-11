@@ -1,0 +1,29 @@
+{include $element->common('header')}
+
+<div id="{$htmlId}" class="{$htmlClass}">
+
+	{var $docs = $wp->categories(docs)}
+	{if $docs}
+		{foreach $docs as $doc}
+			<div class="docs-category">
+				<a href="{$doc->url}">
+					<div class="docs-header">
+						<!-- tu image categorie -->
+						obrazok
+					</div>
+					<div class="docs-content">
+						<div class="docs-title"><h3>{$doc->title}</h3></div>
+						<div class="docs-desc">{!$doc->description|striptags}</div>
+					</div>
+				</a>
+			</div>
+		{/foreach}
+	{else}
+		<div class="docs-category">
+			<div class="alert alert-info">
+				{_x 'Documentation', 'name of element'}&nbsp;&nbsp;|&nbsp;&nbsp;{__ 'Info: There are no items created, add some please.'}
+			</div>
+		</div>
+	{/if}
+
+</div>

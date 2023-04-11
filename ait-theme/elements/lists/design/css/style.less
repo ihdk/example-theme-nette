@@ -1,0 +1,21 @@
+
+@import "../../../@common/common.less";
+
+.bullet() when (iscolor(@iconColor)) 			{ background-color: @iconColor; }
+.round() when (iscolor(@iconColor)) 			{ border-color: @iconColor; color: @iconColor; background: none; }
+
+
+#@{el}{
+
+	.ait-sc-lists li:before						{ .bullet(); }
+	.ait-sc-lists.number.typo1 li:before,
+	.ait-sc-lists.number.typo2 li:before,
+	.ait-sc-lists.number.typo3 li:before,
+	.ait-sc-lists.number.typo4 li:before		{ .round(); }
+
+}
+
+
+.@{el}{
+	clear:both;
+}

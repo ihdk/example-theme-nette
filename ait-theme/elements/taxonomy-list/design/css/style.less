@@ -1,0 +1,46 @@
+
+@import "../../../@common/common.less";
+
+.imageBorder() when (iscolor(@imageBorderColor))			{ border-color: @imageBorderColor; }
+.imageBorderHover() when (iscolor(@imageBorderColorHover))	{ border-color: @imageBorderColorHover; }
+
+.linear-gradient(@direction: "to right")	{
+	@transparentColor = fade(@bg-color, 0);
+
+	background: -webkit-linear-gradient(~"@{direction}, @{bg-color}, @{transparentColor}");
+	background: -o-linear-gradient(~"@{direction}, @{bg-color}, @{transparentColor}");
+	background: -moz-linear-gradient(~"@{direction}, @{bg-color}, @{transparentColor}");
+	background: linear-gradient(~"@{direction}, @{bg-color}, @{transparentColor}"); }
+
+.arrowBgGradientLeft() when (iscolor(@bg-color)) { .linear-gradient(); }
+.arrowBgGradientRight() when (iscolor(@bg-color)) { .linear-gradient("to left"); }
+
+.smallLayout() when (@iconBoxWidth < 150) {
+	a			{ padding-top: 20px; }
+	.item-title { display: none; }
+}
+
+#@{el}-main
+{
+	&.layout-icon .item-box 										{ width: @iconBoxWidth + 0px; }
+	&.layout-icon .item												{ .smallLayout(); }
+	&.layout-icon .item a:not(:hover)								{ .ltoCustomColor(); }
+	&.layout-icon .item .item-title h3								{ .titCustomColor(); .hideTitle(); }
+	&.layout-icon .carousel-icon-arrows .icon-arrow:before			{ .titCustomColor(); }
+
+	&.layout-icon .carousel-icon-arrows .icon-arrow-left			{ .arrowBgGradientLeft(); }
+	&.layout-icon .carousel-icon-arrows .icon-arrow-right			{ .arrowBgGradientRight(); }
+
+	&.layout-icon.carousel-enabled .elm-item-organizer				{ min-width: @iconBoxWidth + 0px !important; }
+
+	.img-type-image .item-thumbnail .item-thumbnail-wrap			{ .imageBorder(); }
+	.img-type-image a:hover .item-thumbnail .item-thumbnail-wrap	{ .imageBorderHover(); }
+
+	.layout-box.img-type-image.img-size-large .item-text			{ .txtCustomColor(); }
+}
+
+.@{el}{
+	clear:both;
+}
+
+

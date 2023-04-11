@@ -1,0 +1,23 @@
+
+@import "../../../@common/common.less";
+
+.standardColor() when (iscolor(@standard))	{ background: @standard; }
+.featuredColor() when (iscolor(@featured))	{ border-color: @featured !important; }
+
+.butBg() when (iscolor(@butColor))			{ background-color: @butColor; }
+.butColor() when (iscolor(@butColor))		{ color: @butColor; }
+
+#@{el}{
+
+	.ptable-item-wrap									{ .ltoCustomColor(); }
+
+	.ptable-item .table-button a						{ .butColor(); }
+	.ptable-item .table-button a:hover,
+	.ptable-item.table-featured .table-button a			{ .butBg(); color: #fff; }
+
+	.ptable-item.table-featured .ptable-item-wrap		{ .featuredColor(); }
+}
+
+.@{el} {
+	clear:both;
+}

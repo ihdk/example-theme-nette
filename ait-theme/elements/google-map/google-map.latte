@@ -1,0 +1,48 @@
+{include $element->common('header')}
+{var $themeOptions = $options->theme }
+<div id="{$htmlId}" class="{$htmlClass}">
+	<div id="{$htmlId}-container" class="google-map-container {if $el->option('mapLoadType') == "request" }on-request{/if}" style="height: {$el->option(height)}px;">
+		{if ( $el->option('mapLoadType') == "request" ) || ( getMapProvider() == 'openstreetmap' )}
+			<div class="request-map">
+				{if getMapProvider() == 'openstreetmap' }
+					{if $themeOptions->google->requestDescriptionText}
+						<div class="request-map-description">
+							{__ 'It is not possible to use Google Map element with Openstreetmap provider. Due to Google restrictions it’s not possible to use Openstreetmap and Google Maps on the same page.'}
+						</div>
+					{/if}
+				{else}
+					{if $themeOptions->google->requestDescriptionText}
+						<div class="request-map-description">
+							{!$themeOptions->google->requestDescriptionText}
+						</div>
+					{/if}
+					<div class="request-map-button">
+						<a href="#" class="ait-sc-button simple">
+						      <span class="container">
+						            <span class="text">
+					                    <span class="title">{if $themeOptions->google->requestButtonText}{!$themeOptions->google->requestButtonText}{else}{__ 'Show the map'}{/if}</span>
+						            </span>
+						      </span>
+						</a>
+					</div>
+				{/if}
+			</div>
+		{/if}
+	</div>
+
+	{*
+	{var $centerCode = ($el->option(latitude) == 0 && $el->option(longitude) == 0 && trim($el->option(address)) != "") ? "" : "center:[{$el->option('latitude')}, {$el->option('longitude')}],"}
+	{var $latLngCode = $el->option(latitude) == 0 && $el->option(longitude) == 0 && trim($el->option(address)) != "" ? "" : "latLng:[{$el->option('latitude')}, {$el->option('longitude')}],"}
+	{var $addressCode = $centerCode != "" ? "" : "address: '{$el->option('address')}',"}
+	*}
+
+	{var $address = $el->option('address')}
+	{if isset($address['address']) == false}
+		{* backwards compatibility *}
+		{var $address = AitLangs::getCurrentLocaleText($address)}
+	{/if}
+	{var $scrollWheel = $el->option(mousewheelZoom) ? "true" : "false"}
+
+	{includePart "ait-theme/elements/google-map/javascript"}
+
+</div>

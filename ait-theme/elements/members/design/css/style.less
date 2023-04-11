@@ -1,0 +1,20 @@
+
+@import "../../../@common/common.less";
+
+.textBgColor() when (iscolor(@bg-color))		{ background: fade(hsl(hue(@bg-color), saturation(@bg-color), 8%), 75%) padding-box; }
+.positionColor() when (iscolor(@positionColor))	{ color: @positionColor; }
+
+#@{el}-main
+{
+	.layout-box .item						{ .ltoCustomColor(); }
+	.layout-box .image-present .item-text	{ .textBgColor(); }
+
+	ul.member-contacts li 				{ .titCustomColor(); }
+	.member-position					{ .lnkCustomColor(); }
+	.member-position					{ .positionColor(); }
+}
+
+
+.@{el}{
+	clear:both;
+}

@@ -1,0 +1,30 @@
+@include: common.neon
+
+text:
+	type: editor
+	settings:
+		media_buttons: true
+		teeny: false
+	basic: true
+
+customWidth:
+	label: Custom Width
+	type: number
+	unit: px
+	default: '1000'
+	help: "Custom max-width of element"
+
+headAlign:
+	label: Alignment
+	type: image-radio
+	checked: align-left
+	images:
+		align-left: text-align-left.png
+		align-center: text-align-center.png
+		align-right: text-align-right.png
+	default:
+		align-left: Align to Left
+		align-center: Align to Center
+		align-right: Align to Right
+	help: "Select alignment of title and description"
+	less: true

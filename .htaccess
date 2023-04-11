@@ -1,0 +1,25 @@
+<Files *>
+    # Apache < 2.3
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+
+    # Apache ≥ 2.3
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</Files>
+
+<Files ~ "\.(css|js|gif|jpg|png|eot|ttf|woff|woff2|svg|txt)$">
+    # Apache < 2.3
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Allow from all
+    </IfModule>
+
+    # Apache ≥ 2.3
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+</Files>

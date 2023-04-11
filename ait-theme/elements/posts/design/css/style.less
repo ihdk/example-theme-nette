@@ -1,0 +1,26 @@
+
+@import "../../../@common/common.less";
+
+.dateCustomColor() when (iscolor(@dateColor))		{ color: @dateColor; }
+.dateCustomBck() when (iscolor(@dateColor))			{ background-color: @dateColor; }
+.catCustomColor() when (iscolor(@categoryColor))	{ color: @categoryColor; }
+.catCustomBck() when (iscolor(@categoryColor))		{ background-color: @categoryColor; }
+.categoryLnkColor() when (iscolor(@categoryLnkColor))	{ color: @categoryLnkColor; }
+
+#@{el}{
+
+	.layout-box .item						{ .ltoCustomColor(); }
+
+	.layout-list .item-date					{ .dateCustomBck(); }
+	.layout-box .item-thumbnail .item-date	{ .dateCustomBck(); }
+	.layout-box .item-text .item-date		{ .titCustomColor(); }
+	.layout-box .item-text .item-date		{ .dateCustomColor(); }
+	.layout-box .item-categories a			{ .catCustomBck(); .categoryLnkColor(); }
+	.layout-box .button						{ .titCustomColor(); &:hover { .dateCustomBck(); color: #fff; .dateCustomColor(); } }
+
+}
+
+
+.@{el}{
+	clear:both;
+}

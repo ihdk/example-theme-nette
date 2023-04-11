@@ -1,0 +1,592 @@
+
+/**************************************************/
+/*** && Font Mixins                             ***/
+/**************************************************/
+
+
+.font(@weight, @style = normal){
+	font-family: @theme-typography-titleFont-family;
+	font-weight: @weight;
+	font-style: @style;
+}
+
+.fontTXT(@weight, @style = normal){
+	font-family: @theme-typography-mainFont-family;
+	font-weight: @weight;
+	font-style: @style;
+}
+
+.fontface1(@type) when (@type = theme){
+
+	@font-face {
+	    font-family: 'Open Sans Condensed';
+	    src: url('@{fonts-url}/opensans/opensans-condbold.eot');
+	    src: url('@{fonts-url}/opensans/opensans-condbold.eot?#iefix') format('embedded-opentype'),
+	         url('@{fonts-url}/opensans/opensans-condbold.woff') format('woff'),
+	         url('@{fonts-url}/opensans/opensans-condbold.ttf') format('truetype'),
+	         url('@{fonts-url}/opensans/opensans-condbold.svg#OpenSansCondBold') format('svg');
+	    font-weight: 700;
+	    font-style: normal;
+	}
+
+}
+
+
+.fontface2(@type) when (@type = theme){
+
+	@font-face {
+	    font-family: 'Open Sans';
+	    src: url('@{fonts-url}/opensans/opensans-light.eot');
+	    src: url('@{fonts-url}/opensans/opensans-light.eot?#iefix') format('embedded-opentype'),
+	         url('@{fonts-url}/opensans/opensans-light.woff') format('woff'),
+	         url('@{fonts-url}/opensans/opensans-light.ttf') format('truetype'),
+	         url('@{fonts-url}/opensans/opensans-light.svg#OpenSansRegular') format('svg');
+	    font-weight: 300;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'Open Sans';
+	    src: url('@{fonts-url}/opensans/opensans-regular.eot');
+	    src: url('@{fonts-url}/opensans/opensans-regular.eot?#iefix') format('embedded-opentype'),
+	         url('@{fonts-url}/opensans/opensans-regular.woff') format('woff'),
+	         url('@{fonts-url}/opensans/opensans-regular.ttf') format('truetype'),
+	         url('@{fonts-url}/opensans/opensans-regular.svg#OpenSansRegular') format('svg');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'Open Sans';
+	    src: url('@{fonts-url}/opensans/opensans-bold.eot');
+	    src: url('@{fonts-url}/opensans/opensans-bold.eot?#iefix') format('embedded-opentype'),
+	         url('@{fonts-url}/opensans/opensans-bold.woff') format('woff'),
+	         url('@{fonts-url}/opensans/opensans-bold.ttf') format('truetype'),
+	         url('@{fonts-url}/opensans/opensans-bold.svg#OpenSansBold') format('svg');
+	    font-weight: 700;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'Open Sans';
+	    src: url('@{fonts-url}/opensans/opensans-italic.eot');
+	    src: url('@{fonts-url}/opensans/opensans-italic.eot?#iefix') format('embedded-opentype'),
+	         url('@{fonts-url}/opensans/opensans-italic.woff') format('woff'),
+	         url('@{fonts-url}/opensans/opensans-italic.ttf') format('truetype'),
+	         url('@{fonts-url}/opensans/opensans-italic.svg#OpenSansRegular') format('svg');
+	    font-weight: 400;
+	    font-style: italic;
+	}
+
+}
+
+
+
+
+
+/**************************************************/
+/*** && Fonts definitions                       ***/
+/**************************************************/
+
+.fontface1(@theme-typography-titleFont-type);
+.fontface2(@theme-typography-mainFont-type);
+
+
+
+.lang-@{current-lang}{
+
+  body								{ .fontTXT(normal); }
+  strong, b                       	{ font-weight: bold; }
+  em								{ font-style: italic; }
+  a.comment-reply-link            	{ .font(900); }
+
+  h1		{ .font(700); }
+  h2		{ .font(700); }
+  h3		{ .font(600); }
+  h4		{ .font(600); }
+  h5		{ .font(700); }
+  h6		{ .font(700); }
+
+  h1, h2, h3, h4, h5, h6
+  {
+  strong		{ font-weight: bolder; }
+  }
+
+  .site-description a { .fontTXT(bolder); }
+
+  .breadcrumb-sep	{ font-weight: bold; }
+
+  input, textarea,
+  select, .sbHolder			{ .fontTXT(normal); }
+
+  input[type="submit"]		{ .font(600); }
+  input[type="reset"]		{ .font(600); }
+
+  .ui-datepicker                                        { .fontTXT(normal); }
+  .ui-datepicker .ui-widget-header                      { .font(600); }
+  .ui-datepicker table th						        { .font(600); }
+  .ui-datepicker table td a.ui-state-default            { font-weight: normal; }
+  .ui-datepicker table td a.ui-state-active          { font-weight: 600; }
+
+  blockquote, q     { font-style: italic; }
+
+  .site-logo a,
+  .site-logo a:hover  { .font(800);}
+
+  .nav-menu-main > ul > li > a  { .font(400); }
+  .menu-item-column-label 										{ font-weight: 600; }
+
+  .menu-item-column > ul li.menu-item-has-children > a 			{ font-weight: 600; }
+
+  .menu-item-description 			{ .font(400);}
+
+  .header-resources .resources-data { .font(400); }
+  .header-resources .ait-sc-button 	{ .font(600); }
+
+  .language-switcher .language-icons__list li a  			{ .font(400); }
+  .language-switcher .language-icons__list li a.current  	{ font-weight: 600; }
+
+  .page-title-social .share-text	{ .font(700); }
+
+  .entry-content table thead th	{ font-weight: bold; }
+  .entry-content table tbody th	{ font-weight: bold; }
+
+  .entry-content .tabstyle1 table thead th 	{ font-weight: bold; }
+
+  .wp-caption .wp-caption-text  { font-style: italic; }
+
+  .ait-sc-button .title	  		{ .font(600); }
+  .ait-sc-button .title small 	{ .font(600); }
+
+  .ait-sc-notification h5		{ font-weight: 600; }
+
+  .elm-easy-slider-main .bx-wrapper li .bx-caption .bx-caption-desc
+    {
+     span.bx-link-button	{ .font(600); }
+    }
+
+  .elm-easy-slider-main ul.easy-slider li .easy-title { .font(700); }
+
+  .elm-portfolio .filters-wrapper .filter-wrapper .selected	     	{ .font(700); }
+  .elm-portfolio .filters-wrapper .filter-wrapper .selected span 	{ .font(400); }
+  .elm-portfolio .filters-wrapper .filter-wrapper ul li a 			{ .fontTXT(normal); }
+
+  .elm-item-organizer .item-duration,
+  .elm-item-organizer .item-duration strong	{ .font(600); }
+  .elm-item-organizer .item-duration time,
+  .elm-item-organizer .item-duration span 	{ .font(400); }
+
+  .elm-services-main .item-title p	{ .font(600); }
+  .elm-services-main .readmore 		{ .font(700); }
+
+  .elm-events-main .event-date .entry-date		{ .font(600); }
+  .elm-events-main .item-info 					{ .font(700); }
+
+  .elm-posts-main .item-date  					{ .font(600); }
+  .elm-posts-main .item-categories a 			{ .font(500); }
+  .elm-posts-main .layout-box .button			{ .font(600); }
+
+  .elm-job-offers-main .item-duration         	{ .font(700); }
+  .elm-job-offers-main .item-duration strong  	{ .font(600); }
+  .elm-job-offers-main .job-contact	          	{ .font(400); }
+  .elm-job-offers-main .job-contact strong    	{ .font(600); }
+
+  .post-type-archive-ait-job-offer .elm-item-organizer-container {
+	.item-duration         	{ .font(700); }
+	.item-duration strong  	{ .font(700); }
+	.job-contact	        { .font(400); }
+	.job-contact strong    	{ .font(700); }
+}
+
+  .elm-opening-hours-main .day-title h5	{ font-weight: 500; }
+
+  .elm-testimonials-main .item .item-info .item-author   { .font(500); }
+  .elm-testimonials-main .item-text .item-excerpt:before { font-weight: bold; }
+
+  .carousel-bottom-arrows .carousel-nav-text	{ .font(700); }
+
+  .elm-toggles-main ul.ait-tabs-nav li a,
+  .elm-toggles-main li .ait-tab-hover,
+  .elm-toggles-main .responsive-tabs-select,
+  .elm-toggles-main .toggle-header .toggle-title				{ .font(500); }
+  .elm-toggles-main ul.ait-tabs-nav li.ui-state-active a,
+  .elm-toggles-main li.ui-state-active .ait-tab-hover,
+  .elm-toggles-main .toggle-header.toggle-active .toggle-title	{ font-weight: 700; }
+  .elm-toggles-main .ait-tabs .tabs-wrapper .selected	        { .font(500); }
+  .elm-toggles-main .responsive-tabs-select						{ .font(500); }
+  .elm-toggles-main .ait-tabs .tabs-wrapper .responsive-tabs li { .font(500); }
+
+  .local-toggles .toggle-content .toggle-container   { .fontTXT(normal); }
+
+  .elm-price-table .table-header h3					{ .font(600); }
+
+  .elm-price-table .table-header .table-price	   	{ .font(600); }
+  .elm-price-table .table-header .table-subtitle	{ .font(500); }
+
+  .elm-price-table .table-button a              	{ .font(600); }
+
+  .elm-countdown-main .clock-data	.clock-value  { .font(700); }
+
+  .elm-counters-main .counter-title   { .font(700); }
+
+  .elm-counters-main .counter-type-textbox .type-text   { .font(700); }
+
+  .elm-main ul.member-contacts li	{ .font(500); }
+  .member-position					{ .font(600); }
+
+  .entry-content-hider   { .font(600); }
+
+  .elm-google-map	 .gmap-infowindow-content p  { .fontTXT(normal); }
+
+  .elm-contact-form-main form p .input-row .input-label .label                { .font(600); }
+  .elm-contact-form-main form .input-submit .submit-wrap input[type="reset"]  { .font(400); }
+
+  .elm-products {
+
+    .product-price                                  { .font(700); }
+    .product-featured .item-title h3                { font-weight: bold; }
+  }
+
+  .elm-sitemap-main .elm-sitemap li > a	{ .font(500); }
+
+  .elm-rule-main .rule-btn-top { .font(400); }
+
+
+  .hentry, .entry-footer	{
+    .entry-title h2	 { .font(600); }
+  }
+
+  .hentry .categories a,
+  .hentry .tags a	{ .font(500); }
+  .hentry .entry-footer	{ .font(600); }
+
+  .hentry.sticky {
+    .featured-post { font-weight: bold; }
+  }
+
+  .single-post .comments-link { .font(800); }
+  .author-link-wrap { .font(400); }
+
+  .entry-date { .font(600); }
+
+  .comments-title .count			{ font-weight: 500; }
+  .commentlist .comment-meta .fn 	{ .font(600); }
+  .commentlist .bypostauthor .comment-meta .fn	{ font-weight: 700; }
+
+  #respond h3 small 				{ .font(800); }
+  #respond form label 				{ .fontTXT(normal); }
+  #respond .logged-in-as			{ .font(600); }
+
+  a.post-edit-link, a.comment-edit-link,
+  a.comment-reply-link           { .font(500); }
+
+
+/* Pagination */
+
+  .nav-single { .font(500); }
+
+
+  .widget-container .widget-title h3      	{ .font(700); }
+  .widget_rss .widget-title      			{ .font(700); }
+  .widget_posts a.thumb-link h4           	{ .font(600); }
+  .widget_posts .read-more 					{ .font(600); }
+  .widget_calendar caption 					{ .font(700); }
+  .widget_calendar th	                    { font-weight: bold; }
+  .widget_calendar tbody td#today         	{ font-weight: bold; }
+  .widget_calendar tbody td a	            { font-weight: bold; }
+  .widget_rss	.widget-content a.rsswidget { .fontTXT(normal); }
+
+  .sharebox .middle a  { font-weight: bold; }
+
+  .button           			{ .font(400); }
+
+  .contact-owner-container a 	{ .font(600); }
+  a#claim-listing-button 		{ .font(600); }
+  button[type="submit"]			{ .font(600); }
+  .ait-get-directions-button a.ait-sc-button { .font(600); }
+
+
+  /* ================== */
+  /* = FOOTER WIDGETS = */
+  /* ================== */
+
+  .footer-widgets-container {
+  	.widget_items .item-container h4 	{ .font(400); }
+  }
+
+  .site-footer .footer-text				{ .font(400); }
+  .site-footer .nav-menu-footer ul li a { .font(500); }
+
+ /* Theme Custom Content */
+
+	/* User Panel */
+	.user-panel .user-actions a	{ .font(600); }
+
+	/* Infobox*/
+	.infoBox .item-data a			{ .font(600); }
+	.infoBox .item-picture .phone 	{ .font(400); }
+	.infoBox .item-address			{ .font(400); }
+
+	.cluster					{ font-weight: bold; }
+
+/* =============== */
+/* = SEARCH FORM = */
+/* =============== */
+
+	.elm-search-form {
+		.searchsubmit2 							{ .font(700); }
+		.searchsubmit2:before					{ font-weight: normal; }
+
+		.searchinput,
+		.radius > span,
+		.search-form-type-2 .label,
+		.radius-toggle,
+		.radius-display > span,
+		.select2-chosen,
+		.select2-search input[type="text"] 		{ .fontTXT(normal); }
+
+		.radius-value, .radius-units			{ .font(700); }
+	}
+
+.search-form-type-2 .elm-search-form  {
+	.label { .font(700); }
+	.searchinput { .font(700); }
+	.select2-container .select2-choice { .font(700); }
+	.radius-display > span { .font(700); }
+	.radius-toggle,
+	.radius-display { .font(700); }
+	.select2-chosen,
+	.select2-search input[type="text"] 		{ .font(700); }
+}
+
+
+
+/* ================ */
+/* = WIDGET LOGIN = */
+/* ================ */
+
+	.userlogin-tabs-contents input[type="submit"] 	{ .font(600); }
+	.userlogin-tabs-menu a 							{ .font(400); }
+	.userlogin-tabs-menu a.userlogin-option-active	{ .font(700); }
+	.widgetlogin-button-items 						{ .font(600); }
+	.userlogin-container .lost-password 			{ .font(600); }
+
+
+.userlogin-tabs-contents {
+	.input-username input,
+	.login-username input,
+	.input-email input,
+	.login-password input,
+	.input-captcha input,
+	.input-role .sbHolder { .fontTXT(normal); }
+}
+
+	.userlogin-container.user-logged-in .profile a	{ .font(500); }
+
+
+	/* Widget Items */
+	.widget_items .item-container h4 			{ .font(600); }
+
+	/* Widget Logged In */
+	.profile-name span:nth-child(2) 			{ .font(700); }
+
+	/* Items Filter */
+	.filters-wrap h2					{ font-weight: 600; }
+	.filters-wrap .content .selected:first-child,
+	.filters-wrap .content .title		{ .font(600); }
+	.filters-wrap .sbHolder .sbSelector { .font(500); }
+
+	.item-container .item-body p strong 	{ font-weight: 400; }
+
+	/* Reviews */
+
+	.page-title .review-stars-container .review-count	{ .font(700); }
+	.page-title .review-stars-container a				{ .font(700); }
+
+	.reviews-container .review-actions button			{ .font(700); }
+	.reviews-container .review-rating-question			{ .font(600); }
+	.reviews-container .review-name						{ .font(600); }
+
+	.item-container.reviews-enabled .review-stars-container a,
+	.elm-items-main .reviews-enabled .review-stars-container a		{ .font(900); }
+
+	.reviews-ajax-container	{ .font(400); }
+	.reviews-ajax-button { .font(500); }
+
+
+	.elm-items-main .item .item-categories a 			{ .font(500); }
+	.elm-items-main .item-box .item-featured h3:after 	{ .font(400); }
+
+
+	/* Catgories / Locations Tabs */
+ 	.cat-tabs-menu a,
+	.categories-container li a .cat-ttl { .font(600); }
+
+	/* Featured Items Element */
+	.elm-featured-items-main .item .item-thumbnail .item-location p { font-weight: 500; }
+
+	/* Items Info Element */
+	.elm-items-info .info-count { .font(600); }
+	.elm-items-info .info-text { .font(600); }
+
+	/* Get Directions */
+	.adp-placemark .adp-text	{ .font(800); }
+	.adp-step, .adp-substep		{ .font(400); }
+
+	.directions-form label	{ .fontTXT(400); }
+	.directions-form .label-container label	{ .font(600); }
+
+
+	/* Language Switcher*/
+	.language-icons > a 		{ .font(500); }
+
+
+	/* ============ */
+	/* = ELEMENTS = */
+	/* ============ */
+
+	.date-interval 			{ .font(500); }
+	.date-interval strong 	{ .font(500); }
+
+
+	/* ================== */
+	/* = TAXONOMY ITEMS = */
+	/* ================== */
+
+	.item-image a:before { .font(800); }
+
+	.item-container .item-category		{ .font(500); }
+	.item-container .item-footer .label { .font(600); }
+
+	.item-image a.main-link span { .font(800); }
+
+	.elm-taxonomy-list-wrapper .item-title h3	{ .font(600); }
+
+
+	/* ADVANCED FILTERS */
+
+	.advanced-filters-actions a 			{ .font(600); }
+	.advanced-filters-wrap li .filter-name 	{ .font(400); }
+
+	/* ITEM */
+
+	.single-ait-item .address-name h5		{ font-weight: 500; }
+	.single-ait-item .address-data			{ .font(400); }
+	.single-ait-item .review-stars-container .content.rating-text-shown > a { .font(800); }
+
+	/* PLUGINS */
+
+	#cboxLoadedContent #claim-listing label { .font(800); }
+
+
+	/**************************************************/
+	/*** && ECWID STORE                             ***/
+	/**************************************************/
+
+	@import "ecwid/ecwid-typography.less";
+
+	/* && end of ECWID STORE */
+
+
+	/* EVENTS PRO */
+
+	.single-ait-event-pro {
+
+		.address-container .address-data 		{ .font(400); }
+		.address-container .address-gps 		{ .font(500); }
+		.address-container .address-gps strong 	{ font-weight: 600; }
+
+		.date-text.data-content { .font(400); }
+
+
+		/* Fees */
+		.fee-container.data-container {
+			.fee-label 	{ .font(600); }
+			.fee-desc 	{ .fontTXT(normal); }
+		}
+
+		/* Categories */
+		.event-taxonomy-icon-wrap { .font(500); }
+
+		/* Author Info */
+
+		.organizer-container {
+			h2.title { .font(500); }
+			.label { .font(500); }
+		}
+
+
+		/* Recurring Dates */
+
+		.recurring-dates-container	{
+			h2 span				{ font-weight: 500; }
+			.single-date .date,
+			.single-date .time 	{ .font(400); }
+			.single-date a.active .time { font-weight: 500; }
+		}
+
+		.event-calendar.fc .fc-axis 			{ .font(400); }
+		.event-calendar .fc-state-default 		{ .font(400); }
+		.event-calendar.fc th 					{ .font(600); }
+		.event-calendar .fc-day-number 			{ .font(400); }
+
+		.fc-day-grid-event .fc-time,
+		.fc-time-grid-event .fc-time 			{ .font(400); }
+
+
+	}
+
+	/* Events Element & Container */
+
+	.elm-events-pro .item,
+	.items-container .event-container {
+		.entry-date		{ .font(600); }
+		.more 			{ .font(600); }
+	}
+
+	/* Box Layout & Container */
+
+	.elm-events-pro .layout-box .item .item-location a,
+	.items-container .event-container .item-location a 	{ .font(400); }
+
+	/* List Layout */
+
+	.elm-events-pro .layout-list .item .list-footer .more 	{ .font(400); }
+	.elm-events-pro .layout-list .item .item-location a 	{ .font(400); }
+	.elm-events-pro .layout-list .item .item-location:before { .fontTXT(normal); }
+
+	/* && end of EVENTS PRO */
+
+
+	/**************************************************/
+	/*** && SPECIAL OFFERS PLUGIN                   ***/
+	/**************************************************/
+
+	@import "plugins/special-offers-typography.less";
+
+	.elm-special-offers .item-header > .price		{ .font(600); }
+	.elm-special-offers .item-author				{ .font(500); }
+	.elm-special-offers .item-dates .dates-title	{ .font(600); }
+	.elm-special-offers .navigation-arrows .more a	{ .font(600); }
+
+	.post-type-archive-ait-special-offer .items-container {
+		.layout-list .item-info-wrap		{ .font(400); }
+		.layout-list .item-price > span 	{ font-weight: 500; }
+		.layout-list .item-location 		{ .font(500); }
+	}
+
+	.special-offers-container .item-dates			{ .font(400); }
+	.special-offers-container .item-dates .title	{ font-weight: 600; }
+
+	/* && end of SPECIAL OFFERS PLUGIN */
+
+
+	/**************************************************/
+	/*** && WOOCOMMERCE                             ***/
+	/**************************************************/
+
+	@import "woocommerce/woo-typography.less";
+
+	/* && end of WOOCOMMERCE */
+
+}

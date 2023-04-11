@@ -1,0 +1,82 @@
+@include: common.neon
+
+
+layout:
+	label: Layout
+	type: select
+	selected: full
+	default:
+		full: 'One Column'
+		half: 'Two Columns'
+	help: "Select layout style"
+
+line:
+	label: Lines
+	type: on-off
+	default: off
+	help: "Show or hide lines between items"
+
+style:
+	label: Icon
+	type: image-radio
+	checked: style1
+	images:
+		style1: list1.png
+		style2: list2.png
+		style3: list3.png
+		style4: list4.png
+		style5: list5.png
+		style6: list6.png
+		number: numbs.png
+	default:
+		style1: Style 1
+		style2: Style 2
+		style3: Style 3
+		style4: Style 4
+		style5: Style 5
+		style6: Style 6
+		number: Numbers
+	help: "Select icon style"
+
+iconColor:
+	label: Icon Color
+	type: color
+	default: ''
+	help: "Custom color of icon bullets"
+
+typo:
+	label: Title Style
+	type: image-radio
+	checked: typo0
+	images:
+		typo0: typo0.png
+		typo1: typo1.png
+		typo2: typo2.png
+		typo3: typo3.png
+		typo4: typo4.png
+	default:
+		typo0: No Style
+		typo1: Standard
+		typo2: Standard Bold
+		typo3: Uppercase
+		typo4: Uppercase Bold
+	help: "Select typography style"
+
+
+- section(title: 'Items')
+
+lists:
+	label:
+	type: clone
+	max: 99
+	help: 'Add new List item by click on "+ Add New Item" link, or remove existing List item by clicking on red cross. Click on "Remove All Items" link to remove all existing List items.'
+	items:
+		text:
+			label: Title
+			type: text
+			default: ""
+		desc:
+			label: Description
+			type: text
+			default: ""
+	default: []

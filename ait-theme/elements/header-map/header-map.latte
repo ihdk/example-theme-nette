@@ -1,0 +1,209 @@
+{* VARIABLES *}
+
+{var $mapDisabled = false}
+
+{var $elmAddress = $el->option('address')}
+
+{var $scrollWheel = $el->option(mousewheelZoom) ? "true" : "false"}
+{var $autoZoomAndFit = $el->option('autoZoomAndFit') ? true : false}
+{var $clustering = $el->option('clusterEnable') ? true : false}
+{var $clustering = $el->option('clusterEnable') ? true : false}
+{var $geoLocation = $el->option('geoLocationEnable') ? true : false}
+{var $radius = false}
+
+{var $streetview = false}
+{var $swheading = ''}
+{var $swpitch = ''}
+{var $swzoom = ''}
+
+{* initialise streetview parameters from element settings *}
+{var $elmStreetview = false}
+{if $elmAddress['streetview']}
+	{var $streetview = true}
+	{var $elmStreetview = true}
+	{var $address 	= array(
+		'latitude'  => $elmAddress['latitude'],
+		'longitude' => $elmAddress['longitude'],
+	)}
+	{var $swheading = $elmAddress['swheading']}
+	{var $swpitch   = $elmAddress['swpitch']}
+	{var $swzoom    = $elmAddress['swzoom']}
+{else}
+	{var $address = $el->option('address')}
+{/if}
+
+
+
+
+{var $mapHeight = 'style="height: '. $el->option->height .'px;"'}
+
+{? global $wp_query}
+{? global $__ait_query_data;}
+{var $globalQueryVars = $wp_query->query_vars}
+
+{var $pageType = 'normal'}
+{var $headerLayoutType = $options->layout->general->headerType}
+
+{*********************************}
+{******** IS SEARCH PAGE *********}
+{*********************************}
+{if $wp->isSearch && isset($_REQUEST['a'])}
+	{var $pageType = 'search'}
+	{var $searchQuery = wp_parse_args($_GET)}
+
+	{* enable geolocation because searched with radius *}
+	{if !empty($_REQUEST['rad'])}
+		{var $geoLocation = true}
+		{var $radius = $_REQUEST['rad']}
+	{/if}
+
+{*********************************}
+{******** IS AIT TAX PAGE ********}
+{*********************************}
+{elseif $wp->isTax('ait-items') or $wp->isTax('ait-locations')}
+	{var $pageType = 'ait-items'}
+	{var $meta = (object) get_option("{$taxonomyTerm->taxonomy}_category_{$taxonomyTerm->id}")}
+	{var $headerLayoutType = isset($meta->header_type) ? $meta->header_type : ''}
+
+{elseif $wp->isTax('ait-events-pro')}
+	{var $meta = (object) get_option("{$taxonomyTerm->taxonomy}_category_{$taxonomyTerm->id}")}
+	{var $headerLayoutType = isset($meta->header_type) ? $meta->header_type : ''}
+
+{*********************************}
+{****** IS SINGLE ITEM PAGE ******}
+{*********************************}
+{elseif $wp->isSingular('ait-item')}
+	{var $pageType = 'ait-item'}
+	{var $autoZoomAndFit = true}
+	{var $itemAddress = $post->meta('item-data')->map}
+	{var $streetview = false}
+	{if $itemAddress['streetview']}
+		{var $streetview = true}
+		{var $address 	= array(
+			'latitude'  => $itemAddress['latitude'],
+			'longitude' => $itemAddress['longitude'],
+		)}
+		{var $swheading = $itemAddress['swheading']}
+		{var $swpitch   = $itemAddress['swpitch']}
+		{var $swzoom    = $itemAddress['swzoom']}
+	{/if}
+	{var $headerLayoutType = $post->meta('item-data')->headerType}
+
+{**************************************}
+{****** IS SINGLE EVENT PRO PAGE ******}
+{**************************************}
+{elseif $wp->isSingular('ait-event-pro')}
+	{var $pageType = 'ait-event-pro'}
+	{var $autoZoomAndFit = true}
+	{var $streetview = false}
+	{var $itemAddress = aitEventAddress($post, true)}
+	{if $itemAddress['streetview']}
+		{var $streetview = true}
+		{var $address 	= array(
+			'latitude'  => $itemAddress['latitude'],
+			'longitude' => $itemAddress['longitude'],
+		)}
+
+		{var $swheading = $itemAddress['swheading']}
+		{var $swpitch   = $itemAddress['swpitch']}
+		{var $swzoom    = $itemAddress['swzoom']}
+	{/if}
+	{var $headerLayoutType = $post->meta('event-pro-data')->headerType}
+
+{elseif $wp->isCategory or ($wp->isArchive and !$wp->isPostTypeArchive) or $wp->isTag or $wp->isAuthor}
+	{var $mapDisabled = true}
+{/if}
+
+{if $headerLayoutType == 'map'}
+	{var $headerLayoutType = $elements->unsortable[header-map]->display ? $headerLayoutType : ''}
+{elseif $headerLayoutType == 'video'}
+	{var $headerLayoutType = $elements->unsortable[header-video]->display ? $headerLayoutType : ''}
+{elseif $headerLayoutType == 'revslider'}
+	{var $headerLayoutType = $elements->unsortable[revolution-slider]->display ? $headerLayoutType : ''}
+{/if}
+
+{* ENABLE TOGGLE FOR RESPONSIVE AREAS *}
+
+{var $toggleButton = false}
+{var $toggleArea = false}
+{var $headerLayoutType = isset($headerLayoutType) ? $headerLayoutType : $options->layout->general->headerType}
+
+{if $wp->isTax(items) or $wp->isTax(locations) or $wp->isSingular(item) or $wp->isTax('ait-events-pro') or $wp->isSingular('ait-event-pro') or $wp->isSearch}
+	{if $headerLayoutType == 'map' and !$elements->unsortable[search-form]->display}
+		{var $toggleButton = true}
+	{/if}
+
+	{var $toggleArea = true}
+{/if}
+
+{if $options->layout->custom->layout == 'half' && $headerLayoutType != '' && $headerLayoutType != 'none' && $headerLayoutType != 'revslider'}
+	{var $layoutType = 'half'}
+{elseif $options->layout->custom->layout == 'full'}
+	{var $layoutType = 'full'}
+{else}
+	{var $layoutType = 'collapsed'}
+{/if}
+
+{if $layoutType == 'collapsed' or ($layoutType == 'half' and $headerLayoutType == 'map')}
+	{var $toggleButton = true}
+
+	{var $searchFormType = $elements->unsortable[search-form]->display ? $elements->unsortable[search-form]->options[type] : ''}
+	{if $searchFormType != 3}
+		{var $toggleArea = true}
+	{/if}
+{/if}
+
+{if $toggleButton}
+<div class="ait-toggle-area-group-container toggle-map">
+	<div class="grid-main">
+		<div class="ait-toggle-area-group">
+			<a href="#" class="ait-toggle-area-btn" data-toggle=".{$htmlClass}"><i class="fa fa-map-o"></i> {__ 'Toggle Map'}</a>
+		</div>
+	</div>
+</div>
+{/if}
+
+{if !$mapDisabled}
+<div id="{$htmlId}" class="{$htmlClass}{if $toggleArea} ait-toggle-area{/if}">
+	<div {!$mapHeight}>
+
+		{var $mapParams = array(
+			'name'				=> 'headerMap',
+			'enableAutoFit'     => $autoZoomAndFit,
+			'enableClustering'  => $clustering,
+			'typeId'            => $el->option('type'),
+			'clusterRadius'     => intval($el->option('clusterRadius')),
+			'enableGeolocation' => $geoLocation,
+			'radius'			=> $radius,
+			'streetview'		=> $streetview,
+			'address'			=> $address,
+			'swheading'			=> $swheading,
+			'swpitch'			=> $swpitch,
+			'swzoom'			=> $swzoom,
+			'externalInfoWindow'=> false,
+			'i18n'		        => aitMapTranslations(),
+		)}
+		{var $themeOptions = $options->theme }
+
+		{if getMapProvider() == 'openstreetmap'}
+			{includePart parts/leaflet-map
+				options     	=> aitGetMapOptions($el->options),
+				markers     	=> array(),
+				params      	=> $mapParams,
+				containerID 	=> $htmlId,
+				themeOptions 	=> $themeOptions
+			}
+		{else}
+			{includePart parts/google-map
+				options     	=> aitGetMapOptions($el->options),
+				markers     	=> array(),
+				params      	=> $mapParams,
+				containerID 	=> $htmlId,
+				themeOptions 	=> $themeOptions
+			}
+		{/if}
+
+	{includePart "ait-theme/elements/header-map/javascript"}
+	</div>
+</div>
+{/if}

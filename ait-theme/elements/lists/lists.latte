@@ -1,0 +1,43 @@
+{include $element->common('header')}
+
+{var $style = $el->option(style)}
+
+<div id="{$htmlId}" class="{$htmlClass}">
+
+	<div class="entry-content">
+
+		{if $el->option('lists') != "" && is_array($el->option('lists'))}
+			<div class="lists-container">
+				{var $line = $el->option('line') ? 'line'}
+				{var $layout = $el->option('layout')}
+				{var $typo = $el->option('typo')}
+
+				{if $style == 'number'}
+				<ol n:class='ait-sc-lists, "layout-{$layout}", $style, $typo, $line'>
+				{else}
+				<ul n:class='ait-sc-lists, "layout-{$layout}", $style, $typo, $line'>
+				{/if}
+
+				{foreach $el->option('lists') as $item}
+					<li>
+						<h6>{$item['text']}</h6>
+						{if $item['desc']}<p>{$item['desc']}</p>{/if}
+					</li>
+				{/foreach}
+
+				{if $style == 'number'}	</ol> {else} </ul> {/if}
+
+			</div>
+		{else}
+			<div class="lists-container">
+				<div class="alert alert-info">
+					{_x 'Lists', 'name of element'}&nbsp;&nbsp;|&nbsp;&nbsp;{__ 'Info: There are no items created, add some please.'}
+				</div>
+			</div>
+		{/if}
+
+	</div>
+
+</div>
+
+{includePart "ait-theme/elements/lists/javascript"}

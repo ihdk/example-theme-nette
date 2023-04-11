@@ -1,0 +1,231 @@
+@include: common.neon
+
+image:
+	label: Image
+	type: image
+	default: ""
+	help: "Image to display"
+
+width:
+	label: Width
+	type: number
+	unit: px
+	default: ''
+	help: "Width of image"
+
+imgLayout:
+	label: Image Layout
+	type: select
+	selected: ratio
+	default:
+		ratio: Keep Aspect Ratio
+		square: Crop to Square
+		round: Rounded
+	help: "Layout of the image displayed on the page"
+
+border:
+	label: Border
+	type: on-off
+	default: off
+	help: "Display or hide borders"
+
+altTitle:
+	label: Image Title
+	type: text
+	default: ""
+	help: "Title of the image displayed as ALT text"
+
+captionTitle:
+	label: Place Title to Caption
+	type: on-off
+	default: off
+	help: "Display Title of the image in caption"
+
+caption:
+	label: Image Caption
+	type: textarea
+	default: ""
+	help: "Image description displayed as caption"
+
+- section(title: 'Link Settings')
+
+linkTo:
+	label: Link to
+	type: select
+	selected: media
+	default:
+		media: Media File
+		url: Custom Url
+		none: None
+	help: "Where to link the image?"
+
+- section(id: linkTo-url, title: '')
+
+link:
+	label: Custom URL
+	type: url
+	default: ''
+	help: "URL of link on the image, use valid URL format with http://"
+
+linkTarget:
+	label: Link Target
+	type: select
+	selected: current
+	default:
+		current: Open in Current Window
+		new: Open in New Window
+	help: "Target of the link"
+
+- section(title: 'Data for Custom Label')
+
+useLabel:
+	label: Use Label
+	type: select
+	selected: hide
+	default:
+		hide: No Label
+		show: Use Label
+	help: "Set custom label on the image"
+
+- section(id: useLabel-show, title: '')
+
+labelSize:
+	label: Size
+	type: number
+	unit: px
+	default: '150'
+	help: "Size of the label"
+
+labelIcon:
+	label: Icon
+	type: code
+	default: ""
+	help: "Class for FontAwesome icon"
+
+labelTitle:
+	label: Title
+	type: text
+	default: ""
+	help: "Title of label"
+
+labelDesc:
+	label: Description
+	type: text
+	default: ""
+	help: "Description of label"
+
+labelPos:
+	label: Label Position
+	type: select
+	selected: tl
+	default:
+		tl: Top Left Corner
+		tr: Top Right Corner
+		bl: Bottom Left Corner
+		br: Bottom Right Corner
+	help: "Zero point for X and Y coordinates of label position"
+
+labelPosX:
+	label: X Coordinate
+	type: number
+	unit: px
+	default: '0'
+	help: "+ / - coordinate on X axis"
+
+labelPosY:
+	label: Y Coordinate
+	type: number
+	unit: px
+	default: '0'
+	help: "+ / - coordinate on Y axis"
+
+labelUrl:
+	label: Label URL
+	type: url
+	default: ''
+	help: "URL of link on the label, use valid URL format with http://"
+
+labelTarget:
+	label: Label Link Target
+	type: select
+	selected: current
+	default:
+		current: Open in Current Window
+		new: Open in New Window
+	help: "Target of the link"
+
+- section(title: 'Image Container', advanced: true)
+
+borderColor:
+	label: Image Border Color
+	type: color
+	default: ''
+	help: "Color of border around image"
+
+leftOffset:
+	label: Left Offset
+	type: number
+	unit: px
+	default: ''
+	help: "Left offset around the image"
+
+rightOffset:
+	label: Right Offset
+	type: number
+	unit: px
+	default: ''
+	help: "Right offset around the image"
+
+- section(title: 'Colors and Advanced Layout', advanced: true)
+
+captionPos:
+	label: Caption Position
+	type: select
+	selected: outside
+	default:
+		outside: Outside of Image
+		inside: Inside of Image
+	help: "Position of the image caption"
+
+captionSize:
+	label: Caption Size
+	type: range
+	unit: %
+	min: 50
+	max: 100
+	step: 5
+	default: 100
+	help: "Width of the Caption"
+
+captionTop:
+	label: Caption Top Offset
+	type: number
+	unit: px
+	default: ''
+	help: "Top margin of caption placed outside"
+
+captionBox:
+	label: Caption Background Color
+	type: color
+	opacity: 100%
+	default: ''
+	help: "Backgroud Color of caption"
+
+captionTxt:
+	label: Caption Text Color
+	type: color
+	default: ''
+	help: "Color of texts in caption"
+
+labelBck:
+	label: Label Background Color
+	type: color
+	default: ''
+	help: "Backgroud Color of label"
+
+labelTxt:
+	label: Label Text Color
+	type: color
+	default: ''
+	help: "Color of texts in label"
+

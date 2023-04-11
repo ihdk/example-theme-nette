@@ -1,0 +1,159 @@
+
+
+#adminmenu .wp-menu-image img	{ padding-top: 9px; opacity: 0.9; }
+
+body#media-upload #media-upload-header #tab-ait-shortcodes { display: none; }
+
+
+/*** AIT Notices ***/
+
+/* Buttons */
+
+.ait-notice-button 						{ position: relative; font-weight: bold; font-size: 14px; line-height: 24px; display: inline-block; vertical-align: top; padding: 8px 25px; background: #3ba6bd; color: #ffffff; border: none; border-radius: 2px; text-decoration: none; cursor: pointer; -webkit-transition: 0.3s all; -moz-transition: 0.3s all; transition: 0.3s all; }
+.ait-notice-button:hover,
+.ait-notice:hover .ait-notice-button	{ background: #4fb8ce; box-shadow: 0 4px 10px rgba(79, 184, 206, 0.35); color: #ffffff; }
+.ait-notice-button:active,
+.ait-notice-button:focus				{ color: #ffffff; }
+.ait-notice-button.uppercase			{ text-transform: uppercase; }
+
+.ait-notice-button.positive							{ background: #88b44e; }
+.ait-notice-button.positive:hover,
+.ait-notice:hover .ait-notice-button.positive,
+.ait-notice.active .ait-notice-button.positive		{ background: #91bd56; box-shadow: 0 4px 10px rgba(136, 180, 78, 0.35); }
+
+.ait-notice-button.white							{ background: #ffffff; color: #3ba6bd; }
+.ait-notice-button.white:hover,
+.ait-notice:hover .ait-notice-button.white,
+.ait-notice.active .ait-notice-button.white			{ background: rgba(255,255,255,0.85); box-shadow: 0 4px 10px rgba(0,0,0,0.1); color: #3ba6bd; }
+
+.ait-notice-button.button-disabled		{ text-shadow: none !important; }
+.ait-notice-button:disabled				{ color: #fff; pointer-events: none; opacity: 0.9; }
+
+.ait-notice-button .dashicons						{ line-height: inherit; font-size: 15px; }
+.ait-notice-button .dashicons.dashicons-arrow-down,
+.ait-notice-button .dashicons.dashicons-arrow-up	{ font-size: 25px; }
+
+.ait-notice-button.has-arrow							{ padding-right: 50px; }
+.ait-notice-button.has-arrow:after						{ content: "\f140"; font-family: dashicons; font-size: 25px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); transition: all 0.3s; }
+.ait-notice.active .ait-notice-button.has-arrow:after	{ right: 17px; transform: translateY(-47%) rotate(180deg); }
+
+#screen-meta-links + .ait-notice,
+#screen-meta-links ~ :not(div) + .ait-notice 	{ margin-top: 35px; } /* fix when notice is the first under screen options */
+
+/* Notice */
+
+.ait-notice							{ position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; margin: 20px 20px 20px 0; padding: 20px; border-radius: 2px; background: #3ba6bd; color: #ffffff; box-shadow: 0 7px 20px rgba(59, 166, 189, 0.25); clear: both; cursor: pointer; }
+.ait-notice .text					{ display: inline-block; padding-right: 50px; vertical-align: middle; box-sizing: border-box; -webkit-animation: 0.8s fadeIn; animation: 0.8s fadeIn; }
+.ait-notice .text .big				{ font-size: 18px; }
+.ait-notice .ait-notice-button		{ display: inline-block; min-width: 170px; text-align: center; vertical-align: middle; white-space: nowrap; -webkit-animation: 0.5s scaleIn; animation: 0.5s scaleIn; }
+
+.ait-notice-accordion				{ position: relative; display: none; margin: -10px 20px 20px 0; padding: 10px 20px; background: #fff; color: #666; border-radius: 2px; box-shadow: 0 7px 20px rgba(0, 0, 0, 0.05); }
+.active + .ait-notice-accordion		{ display: block; -webkit-animation: 0.3s forwards slideDown; animation: 0.3s forwards slideDown; }
+
+/* Notice Accordion */
+
+.ait-notice-accordion-footer								{ margin: 20px -20px 0 -20px; padding: 10px 20px 0; border-top: 1px solid rgba(0,0,0,0.05); }
+.ait-notice-accordion-footer:after							{ content: ""; display: table; clear: both; }
+.ait-notice-accordion-footer .ait-notice-button-group		{ float: right; }
+.ait-notice-accordion-footer .ait-notice-button-hint		{ display: inline-block; margin-right: 10px; vertical-align: top; font-weight: 600; line-height: 40px; }
+.ait-notice-accordion-footer .ait-notice-button-hint:after	{ content: " &"; }
+
+/* Membership notice */
+
+.ait-notice.ait-basic-package-notice.active .ait-notice-button { background: rgba(255,255,255,0.85); }
+
+.ait-notice.ait-basic-package-notice {
+	background: url('../img/ait-banner-bg.png') #3ba6bd no-repeat left bottom -20px;
+	background: url('../img/ait-banner-bg.png') no-repeat left bottom -20px, -moz-linear-gradient(left, #306c83 0%, #3ba6bd 100%);
+	background: url('../img/ait-banner-bg.png') no-repeat left bottom -20px, -webkit-linear-gradient(left, #306c83 0%,#3ba6bd 100%);
+	background: url('../img/ait-banner-bg.png') no-repeat left bottom -20px, linear-gradient(to right, #306c83 0%,#3ba6bd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#306c83', endColorstr='#3ba6bd',GradientType=1 );
+
+	-webkit-animation: 0.5s bgArrive; animation: 0.5s bgArrive;
+}
+
+.ait-notice.ait-basic-package-notice .text	{ padding-left: 200px; }
+
+.ait-notice-accordion-cols 			{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; margin: 0 -20px; padding: 0 10px; }
+
+.ait-notice-accordion-item			{ -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-flow: column wrap; flex-flow: column wrap; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin: 10px; border-radius: 2px; text-decoration: none; }
+.ait-notice-accordion-item.green	{ background: #3f5858; color: #88b44e; box-shadow: 0 8px 32px rgba(74,123,123,0.4); }
+.ait-notice-accordion-item.blue		{ background: #3f5158; color: #3ba6bd; box-shadow: 0 8px 32px rgba(69,104,118,0.4); }
+.ait-notice-accordion-item.orange	{ background: #524c46; color: #edb061; box-shadow: 0 8px 32px rgba(82,76,70,0.4); }
+
+.ait-notice-accordion-item .img				{ padding: 20px; box-sizing: border-box; }
+.ait-notice-accordion-item img				{ max-width: 100%; }
+.ait-notice-accordion-item h3				{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; color: inherit; font-weight: 300; line-height: 1.1; font-size: 20px; margin: 0; padding: 20px; }
+.ait-notice-accordion-item h3 span			{ color: #fff; }
+.ait-notice-accordion-item h3 .dashicons	{ -ms-flex-negative: 0; flex-shrink: 0; font-size: 32px; line-height: 53px; width: 50px; height: 50px; margin-right: 20px; border: 3px solid currentColor; border-radius: 100%; }
+
+@media all and (max-width: 860px) {
+	/*** * START 860 * ***/
+
+	.ait-notice.ait-basic-package-notice {
+		-ms-flex-flow: row wrap; flex-flow: row wrap; padding: 10px;
+		background: #3ba6bd;
+		background: -moz-linear-gradient(left, #306c83 0%, #3ba6bd 100%);
+		background: -webkit-linear-gradient(left, #306c83 0%,#3ba6bd 100%);
+		background: linear-gradient(to right, #306c83 0%,#3ba6bd 100%);
+	}
+	.ait-notice.ait-basic-package-notice > *	{ margin: 10px; }
+	.ait-notice.ait-basic-package-notice .text	{ padding: 0; }
+
+	.ait-notice-accordion-cols	{ -ms-flex-flow: column wrap; flex-flow: column wrap; }
+
+	/*** * START 860 * ***/
+}
+
+/* PB Sticky Elements Hot Fix */
+
+.ait-notice.active ~ .wrap #stick-to-top 		{ position: static !important; width: auto !important; }
+.ait-notice.active ~ .wrap .ait-options-content { margin-top: 0 !important; }
+
+.sticky .ait-notice.active ~ .wrap .ait-options-mainmenu .ait-header-save			{ position: relative; top: 0; left: 0; -webkit-animation: none; animation: none; }
+.sticky .ait-notice.active ~ .wrap .ait-options-mainmenu .ait-header-save button	{ padding: 13px 35px !important; height: 46px !important; }
+
+/* Animations */
+
+@-webkit-keyframes slideDown {
+    from 	{ opacity: 0; transform: translateY(-10px); }
+    to 		{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from 	{ opacity: 0; transform: translateY(-10px); }
+    to 		{ opacity: 1; transform: translateY(0); }
+}
+
+@-webkit-keyframes bgArrive {
+    from 	{ background-position-y: bottom -80px; }
+    to 		{ background-position-y: bottom -20px; }
+}
+
+@keyframes bgArrive {
+	from 	{ background-position-y: bottom -80px; }
+    to 		{ background-position-y: bottom -20px; }
+}
+
+@-webkit-keyframes fadeIn {
+    from 	{ opacity: 0; }
+    to 		{ opacity: 1; }
+}
+
+@keyframes fadeIn {
+	from 	{ opacity: 0; }
+    to 		{ opacity: 1; }
+}
+
+@-webkit-keyframes scaleIn {
+    0% 		{ transform: scale(0.6); }
+	70%		{ transform: scale(1.1); }
+    100% 	{ transform: scale(1); }
+}
+
+@keyframes scaleIn {
+    0% 		{ transform: scale(0.6); }
+	70%		{ transform: scale(1.1); }
+    100% 	{ transform: scale(1); }
+}
+

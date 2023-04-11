@@ -1,0 +1,26 @@
+/*
+Theme Name: DirectoryPRO
+Template: skeleton
+Version: 4.0.27
+
+Theme URI: http://preview.ait-themes.club/theme/directory2/
+Author: AitThemes.com
+Author URI: http://AitThemes.club
+Description: Premium WordPress theme. Follow us on <a href="http://twitter.com/AitThemes">Twitter</a> or <a href="http://www.facebook.com/AitThemes">Facebook</a>
+Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, rtl-language-support, sticky-post, theme-options, translation-ready
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+*/
+
+/* $WCREV$ */
+
+/*
+NOTE:
+We do not use this file. This is only header stylesheet file with theme info for WordPress.
+For your custom changes please use custom.css stylesheet, where you can override main stylesheet.
+*/
+
+.hentry.sticky .featured-post { font-weight: bold; }
+.gallery-caption.hidden { display: none; }
+.commentlist .bypostauthor .comment-meta .fn { font-weight: 700; }
+.screen-reader-text.visible { visibility: visible; }

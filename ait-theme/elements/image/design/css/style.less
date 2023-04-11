@@ -1,0 +1,42 @@
+
+@import "../../../@common/common.less";
+
+.border() when (iscolor(@borderColor)) 			{ border-color: @borderColor; }
+.capBck() when (iscolor(@captionBox)) 			{ background-color: @captionBox; }
+.capTxt() when (iscolor(@captionTxt)) 			{ color: @captionTxt !important; }
+.labelBck() when (iscolor(@labelBck)) 			{ background-color: fade(@labelBck, 95); }
+.labelBckHvr() when (iscolor(@labelBck)) 		{ background-color: fade(@labelBck, 100); }
+.labelTxt() when (iscolor(@labelTxt)) 			{ color: @labelTxt !important; }
+
+#@{el}{
+
+	.image-container .image-wrap					{ padding-left: @leftOffset;  padding-right: @rightOffset; }
+	.image-container.image-border .image-thumb		{ .border(); }
+	.image-container.caption-inside .image-caption	{ padding-left: @leftOffset;  padding-right: @rightOffset; }
+	.image-caption									{ margin-top: @captionTop; }
+	.image-caption .image-caption-wrap				{ width: @captionSize + 0%; .capBck(); .capTxt(); }
+	.image-caption .image-caption-wrap h4			{ .capTxt(); }
+
+	.image-container .image-label					{ width: @labelSize; min-height: @labelSize; line-height: @labelSize; left: @labelPosX; right: @labelPosX; top: @labelPosY; bottom: @labelPosY; }
+	.image-container .image-label					{ .labelBck(); }
+	.image-container a:hover .image-label			{ .labelBckHvr(); }
+	.image-container .image-label i,
+	.image-container .image-label h4,
+	.image-container .image-label p					{ .labelTxt(); }
+
+}
+
+@media all and (max-width: 768px) {
+
+	#@{el}{
+
+		.image-caption 								{ position: static; }	
+		.image-caption .image-caption-wrap			{ width: 100%; }
+		.image-container .image-wrap				{ padding-left: 0px;  padding-right: 0px; }				
+	}
+
+}
+
+.@{el}{
+	clear:both;
+}

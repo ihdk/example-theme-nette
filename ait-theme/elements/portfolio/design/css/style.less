@@ -1,0 +1,28 @@
+
+@import "../../../@common/common.less";
+
+.textBgColor() when (iscolor(@bg-color))		{ background: fade(hsl(hue(@bg-color), saturation(@bg-color), 8%), 75%) padding-box; }
+
+#@{el} {
+
+	margin-right: -@imageOffset;
+
+	.elm-mainheader								{ margin-right: @imageOffset; }
+	.portfolio-loader							{ left: 0px; right: @imageOffset; }
+	.portfolio-items-wrapper .portfolio-item	{ margin-right: @imageOffset; margin-bottom: @imageOffset; }
+	.portfolio-item .portfolio-item-desc		{ .textBgColor(); }
+	.filters-wrapper							{ margin-right: @imageOffset; }
+	.alert  									{ margin-right: @imageOffset; }
+}
+
+@media all and (max-width: 640px) {
+
+	#@{el}{
+		.portfolio-item {height: auto !important}
+	}
+
+}
+
+.@{el} {
+	/*color:green;*/
+}

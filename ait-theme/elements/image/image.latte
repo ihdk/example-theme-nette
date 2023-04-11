@@ -1,0 +1,91 @@
+{include $element->common('header')}
+
+{var $imageLink 		= ""}
+{var $imageWidth 		= $el->option->width}
+{var $imageTitle 		= $el->option->altTitle}
+
+{var $captionTitle 		= $el->option->captionTitle}
+{var $imageCaption 		= $el->option->caption}
+{var $imageCaptionPos 	= $el->option->captionPos}
+{var $captionShow 		= ""}
+{var $imageBorder 		= $el->option->border}
+
+{var $useLabel 			= $el->option->useLabel}
+{var $labelIcon 		= $el->option->labelIcon}
+{var $labelTitle 		= $el->option->labelTitle}
+{var $labelDesc 		= $el->option->labelDesc}
+{var $labelPos 			= $el->option->labelPos}
+{var $labelUrl 			= $el->option->labelUrl}
+{var $labelTarget 		= $el->option->labelTarget}
+
+{var $imageLayout 		= $el->option->imgLayout}
+{var $imageLinkTo 		= $el->option->linkTo}
+{var $linkTarget 		= $el->option->linkTarget}
+
+{if $imageLinkTo == "url"}
+	{var $imageLink = $el->option('link')}
+{elseif $imageLinkTo == "media"}
+	{var $imageLink = $el->option('image')}
+{else}
+	{var $imageLink = ""}
+{/if}
+
+{if $captionTitle and ($imageTitle != "")}
+	{var $captionShow = "yes"}
+{/if} 
+
+
+<div id="{$htmlId}" class="{$htmlClass}">
+
+	<div class="entry-content">
+		<div class="image-container {if $imageBorder}image-border{/if} {if $imageCaptionPos == 'inside'}caption-inside{/if}">
+			<div class="image-wrap">
+
+				{if $useLabel == "show"}
+					{if $labelUrl}<a href="{$labelUrl}" {if $labelTarget == "new"}target="_blank"{/if}>{/if}
+					<div class="image-label position-{$labelPos}">
+						<div class="image-label-wrap">
+							{if $labelIcon}<i class="fa {$labelIcon}"></i>{/if}
+							{if $labelTitle}<h4>{!$labelTitle}</h4>{/if}
+							{if $labelDesc}<p>{!$labelDesc}</p>{/if}
+						</div>
+					</div>
+					{if $labelUrl}</a>{/if}
+				{/if}
+
+				<span class="image-thumb {if $imageLayout == "round"}image-round{/if}">
+					{if $imageLink}<a href="{$imageLink}" class="{if $imageLinkTo == 'url'}link-url{/if}" {if $linkTarget == "new"}target="_blank"{/if}>{/if}
+					<span class="image-thumb-wrap">
+						{if $imageWidth}
+	
+							{if $imageLayout == "square"}
+								<img src="{imageUrl $el->option('image'), width => $imageWidth, height => $imageWidth, crop => 1, crop_from_position => 'center,center'}" {if $imageWidth}width="{$imageWidth}"{/if} alt="{$imageTitle}">
+							{elseif $imageLayout == "round"}
+								<img src="{imageUrl $el->option('image'), width => $imageWidth, height => $imageWidth, crop => 1, crop_from_position => 'center,center'}" {if $imageWidth}width="{$imageWidth}"{/if} alt="{$imageTitle}">
+							{else}
+								<img src="{imageUrl $el->option('image'), width => $imageWidth, crop => 1}" {if $imageWidth}width="{$imageWidth}"{/if} alt="{$imageTitle}">
+							{/if}
+	
+						{else}
+							<img src="{$el->option('image')}" alt="{$imageTitle}">
+						{/if}
+	
+					</span>
+					{if $imageLink}</a>{/if}
+				</span>
+			</div>
+
+		{if $imageCaption or $captionShow == "yes"}
+			<div class="image-caption">
+				<div class="image-caption-wrap">
+					{if $captionShow}<h4>{!$imageTitle}</h4>{/if}
+					{if $imageCaption}<p>{!$imageCaption}</p>{/if}
+				</div>
+			</div>
+		{/if}
+		</div>
+	</div>
+
+</div>
+
+{includePart "ait-theme/elements/image/javascript"}

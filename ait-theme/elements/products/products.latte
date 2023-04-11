@@ -1,0 +1,57 @@
+{include $element->common('header')}
+
+<div id="{$htmlId}" class="{$htmlClass}">
+
+	{customQuery as $query,
+		type    => product-item,
+		tax     => products,
+		cat     => $el->option(category),
+		limit   => $el->option(count),
+		orderby => $el->option(orderby),
+		order 	=> $el->option(order)
+	}
+
+	{var $imageRatio = $el->option->imageRatio}
+	{var $imageWidth = 400}
+	{var $imageHeight = 400}
+
+	{if $query->havePosts}
+		{var $category = get_term($el->option(category), 'ait-products')}
+
+		{if $el->option->displayTitle}
+		<div class="products-title"><h2>{$category->name}</h2></div>
+		{/if}
+
+		{customLoop from $query as $item}
+			{var $meta = $item->meta('product-item-options')}
+
+			<div n:class="product, $item->hasImage ? image-present, $meta->featured ? product-featured">
+				{if $item->hasImage}
+				<a href="{$item->imageUrl}">
+				<div class="product-thumbnail">
+					{var $ratio = explode(":", $imageRatio)}
+					{var $imageHeight = ($imageWidth / $ratio[0]) * $ratio[1]}
+					<img src="{imageUrl $item->imageUrl, width => $imageWidth, height => $imageHeight, crop => 1}" alt="{!$item->title}">
+				</div>
+				</a>
+				{/if}
+
+				<div class="product-data">
+					<div class="item-title"><h3>{!$item->title}</h3></div>
+					<div class="product-description">{!$meta->description}</div>
+					<div class="product-price">{!$meta->price}</div>
+				</div>
+			</div>
+		{/customLoop}
+
+	{else}
+		<div class="elm-products-container">
+			<div class="alert alert-info">
+				{_x 'Products', 'name of element'}&nbsp;&nbsp;|&nbsp;&nbsp;{__ 'Info: There are no items created, add some please.'}
+			</div>
+		</div>
+	{/if}
+
+</div>
+
+{includePart "ait-theme/elements/products/javascript"}

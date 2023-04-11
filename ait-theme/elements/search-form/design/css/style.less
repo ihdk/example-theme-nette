@@ -1,0 +1,69 @@
+
+@import "../../../@common/common.less";
+
+.bgCustomColorType3() when (iscolor(@bg-color))	{
+	#@{el}-main {
+		background: @bg-color;
+		.elm-search-form { background: none; }
+	}
+
+	.header-layout:not(.search-collapsed) #@{el}-main {
+		background: none;
+
+		.elm-search-form 	{ background-color: @bg-color; }
+		.elm-mainheader 	{ padding-top: 55px; padding-left: 35px; padding-right: 35px; }
+		.elm-wrapper 		{ padding-top: 60px; padding-bottom: 60px; }
+		.elm-mainheader ~ div .elm-wrapper 	{ padding-top: 10px; }
+		.close-search-form-request-map	{ top: -15px; margin-bottom: -40px; }
+	}
+}
+
+.buttonColor() when (iscolor(@buttonColor)) {
+	.category-search-wrap,
+	.location-search-wrap,
+	.radius {
+		background: @buttonColor;
+		&.option-selected 	{ background:  darken(@buttonColor, 10%); }
+		&:hover				{ background:  darken(@buttonColor, 5%); }
+	}
+}
+.buttonColorSeparators() when (iscolor(@buttonColor)) {
+	.search-inputs-buttons-wrap	{
+		> :not(:last-child) {
+			box-shadow: 2px 0 0 0 darken(@buttonColor, 8%);
+
+			&.option-selected 	{ box-shadow: 2px 0 0 0 darken(@buttonColor, 18%); }
+			&:hover				{ box-shadow: 2px 0 0 0 darken(@buttonColor, 13%); }
+		}
+	}
+}
+
+#@{el}-main { background: none; }
+
+#@{el}{
+
+	.bgCustomColor();
+	.bgCustomImage();
+	background-repeat: @bg-repeat;
+	background-attachment: @bg-scroll;
+	background-position: @bg-position;
+
+}
+
+.search-form-type-3
+{
+	.bgCustomColorType3();
+}
+
+.search-form-type-3 #@{el}-main
+{
+	.elm-maindesc 			{ .txtCustomColor(); }
+	.buttonColor();
+	.buttonColorSeparators();
+}
+
+.@{el}{
+	clear:both;
+}
+
+

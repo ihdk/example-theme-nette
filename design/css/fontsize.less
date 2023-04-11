@@ -1,0 +1,588 @@
+/*
+ * AIT WordPress Theme
+ *
+ * Copyright (c) 2014, Affinity Information Technology, s.r.o. (http://ait-themes.club)
+ */
+
+
+body		{ .bodysize; }
+
+h1			{ .h1size; }
+h2			{ .h2size; }
+h3			{ .h3size; }
+h4			{ .h4size; }
+h5			{ .h5size; }
+h6			{ .h6size; }
+
+small					{ .smallsize; }
+input					{ .littlesize; }
+input[type="submit"],
+input[type="reset"]		{ .decsize; }
+textarea				{ .littlesize; }
+select					{ .littlesize; }
+.sbHolder 				{ .littlesize; }
+.sbHolder .sbSelector	{ .littlesize; }
+.sbHolder .sbOptions	{ .littlesize; }
+.ui-datepicker						{ .smallsize; }
+.ui-datepicker .ui-widget-header,
+.ui-datepicker .ui-datepicker-title	{ .smallsize; }
+.ui-datepicker table				{ .smallsize; }
+.ui-datepicker table th				{ .smallsize; }
+
+.site-description 				{ .littlesize; }
+.site-logo a					{ .h1size; }
+#masthead-clone .site-logo a	{ .menusize; }
+.language-icons > a				{ .smallsize; }
+.social-icons li a				{ .decsize; }
+
+.nav-menu-main > ul > li		{ .menusize; }
+.nav-menu-main > ul > li li		{ .submenusize; }
+
+.menu-item-description  { .littlesize; }
+
+.page-title .entry-title-wrap .page-description,
+.page-title .entry-title-wrap .subtitle	{ font-size: @h6Size; line-height: 1.65; }
+
+.breadcrumbs			{ .clearSize; }
+
+.breadcrumbs-before,
+.breadcrumbs a,
+.breadcrumb-begin,
+.breadcrumb-end,
+.breadcrumbs .sep		{ .littlesize; }
+
+.breadcrumbs-before:before { .decsize; }
+
+.entry-content .tabstyle1 table thead th	{ .tableth; }
+
+.ait-sc-rule-btn-top			{ .smallsize; }
+.ait-sc-button.simple .title	{ .decsize; }
+.ait-sc-button .title			{ .h6size; }
+.ait-sc-button .title small 	{ font-size: 11px; line-height: 16px; }
+.ait-sc-button .description		{ .littlesize; }
+.ait-sc-button .icon .fa 		{ font-size: 40px; line-height: 40px; }
+.ait-sc-button.button-plan-my-route .title	{ .decsize; }
+
+.ait-sc-notification h5					{ .h6size; }
+.ait-sc-notification,
+.ait-sc-notification p,
+.entry-content .ait-sc-notification,
+.entry-content .ait-sc-notification p	{ .smallsize; }
+
+.elm-mainheader ~ * .elm-main h2.elm-maintitle	{ font-size: @h2Size - 4; .lineHeight(@h2Size - 4, @titLineDim); }
+
+.header-resources					{ .decsize; }
+.header-resources .resources-data 	{ .decsize; }
+.header-resources .ait-sc-button 	{ .decsize; }
+
+/* =============== */
+/* = USER PANEL = */
+/* =============== */
+
+.user-panel .toggle-button	{ .menusize; }
+.user-panel .user-info		{ .menusize; }
+.user-panel .user-actions a	{ .submenusize; }
+
+.userlogin-tabs-menu a		{ .submenusize; }
+
+.user-panel.opened .login-register,
+.user-panel.opened .user-actions	{ .bodysize; }
+
+.userlogin-tabs-contents .helper { .littlesize; }
+
+/* =============== */
+/* = SEARCH FORM = */
+/* =============== */
+
+.elm-search-form
+{
+	.searchinput,
+	.select2-container .select2-choice		{ font-size: 16px; line-height: 24px; }
+	.radius-value, .radius-units			{ font-size: 16px; line-height: 24px; }
+	.radius-popup-help						{ .littlesize; }
+
+	.search-inputs-wrap .searchinput-wrap:before 		{ font-size: 22px; line-height: 24px; }
+
+	.searchsubmit[type="submit"] 	{ .clearSize; }
+	.searchsubmit2		 			{ font-size: 20px; line-height: 24px; }
+
+	.radius-input-visible:after 	{ font-size: 22px; line-height: 24px; }
+
+	.category-clear,
+	.location-clear,
+	.radius-clear
+	{
+				  font-size: 10px; line-height: 14px;
+		.fa 	{ font-size: 10px; line-height: 14px; }
+	}
+
+}
+
+.search-form-type-2 .elm-search-form
+{
+	.search-content:before 				{ font-size: 22px; line-height: 40px; }
+	.label 								{ font-size: 22px; }
+	.searchinput 						{ font-size: 22px; }
+	.select2-container .select2-choice 	{ font-size: 22px; }
+	.radius-display .radius-value,
+	.radius-display .radius-units 		{ font-size: 22px; }
+
+	.radius-toggle,
+	.radius-display 					{ font-size: 22px; line-height: 44px; }
+
+	.radius-clear
+	{
+				  font-size: 10px; line-height: 14px;
+		.fa 	{ font-size: 10px; line-height: 14px; }
+	}
+}
+
+.search-form-type-3
+{
+	.header-search-wrap
+	{
+		h2.elm-maintitle 	{ font-size: 48px; line-height: 60px; }
+		.elm-maindesc		{ font-size: 14px; line-height: 26px; }
+
+		.category-icon i	{ font-size: 20px; line-height: 24px; }
+		.location-icon i	{ font-size: 22px; line-height: 24px; }
+	}
+}
+
+
+/* ====================== */
+/* = ITEM CATEGORY PAGE = */
+/* ====================== */
+
+.categories-container li {
+
+				  .bodysize;
+	.cat-hdr	{ .h6size; }
+	.cat-desc 	{ .littlesize; .cropLittleSize; }
+}
+
+.items-container {
+	.item-category:after 	{ .bodysize; }
+	.item-categories:before { .bodysize; line-height: 25px; }
+	.item-category 			{ .littlesize; line-height: 25px; }
+	.item-categories 		{ .clearSize; }
+}
+
+.item-container {
+	.item-category				{ font-size: 11px; line-height: 22px; }
+	.item-body p				{ .bodysize; .cropBodySize; }
+	.item-footer				{ .littlesize; }
+	.item-footer .value			{ .littlesize; }
+	.review-stars-container a 	{ .littlesize; }
+	.review-stars 				{ font-size: 14px !important; line-height: 20px; }
+}
+
+.item-footer .item-filters 					{ .clearSize; }
+.item-footer .item-filters .item-filter  	{ .bodysize; line-height: inherit; }
+.item-footer .item-features .filter-hover 	{ .littlesize; }
+
+.filters-wrap h2 		{ .h6size; }
+
+/* ADVANCED FILTERS */
+
+.advanced-filters-actions a { .bodysize; }
+.advanced-filters-wrap li .filter-name { .decsize; }
+
+
+.elm-easy-slider-main ul.easy-slider li .easy-title			{ .h6size; }
+
+.entry-content p											{ .bodysize; }
+
+.elm-sitemap-main .elm-sitemap li > a	{ .smallsize; }
+
+.elm-rule-main .rule-btn-top { .littlesize; }
+
+.elm-portfolio .filters-wrapper 							{ .portfolioFilterSize; }
+.elm-portfolio .filters-wrapper ul							{ .portfolioFilterUlSize; }
+.elm-portfolio .filters-wrapper .filter-wrapper ul li a 	{ .littlesize; }
+.elm-portfolio .portfolio-item .portfolio-item-desc h3 		{ .h4size; }
+.elm-portfolio .portfolio-item .portfolio-item-desc p 		{ .littlesize; .cropLittleSize; }
+
+.elm-item-organizer .carousel-container .item-box			{ .littlesize; }
+.elm-item-organizer .item-title h3							{ .h4size; }
+.elm-item-organizer .layout-box .item-title h3				{ font-size: @h4Size - 2; .lineHeight(@h4Size - 2, @titLineDim); }
+.elm-item-organizer .item-text .item-excerpt				{ .cropLittleSize; .littlesize; }
+.elm-item-organizer .item-text .item-excerpt.size-small		{ .cropSmallSize; .smallsize; }
+
+.elm-main ul.member-contacts 						{ .littlesize; }
+.elm-members-main .layout-list .member-position		{ .littlesize; }
+.elm-member-main .member-title h3 					{ .h4size; }
+
+.elm-events-main .event-date .entry-date			{ font-size: @smlSize; line-height: 1.65; }
+.elm-events-main .item-info							{ .littlesize; }
+
+.elm-posts-main .item-date 							{ .smallsize; }
+.elm-posts-main .item-categories a					{ font-size: 11px; line-height: 22px; }
+.elm-posts-main .layout-box .button					{ font-size: 12px; line-height: 1.4; }
+
+.elm-items-main .item .item-categories a							{ font-size: 11px; line-height: 22px; }
+.elm-items-main .layout-list .item .item-title .subtitle			{ .littlesize; }
+.elm-items-main .layout-list .item .item-categories 				{ .littlesize; }
+.elm-items-main .layout-box a .item-text .item-excerpt 				{ .littlesize; }
+.elm-items-main .layout-box .item .item-social-icons a 				{ font-size: 16px; line-height: 24px; }
+.elm-items-main .layout-box .reviews-enabled .review-stars i 		{ .littlesize;  line-height: 18px; }
+
+.elm-taxonomy-list-main .layout-box.img-type-image.img-size-large .item-text .item-excerpt	{ .cropDecTxtSize; .dectxtsize; }
+
+.elm-testimonials-main .item .item-info .item-author				{ .smallsize; }
+.elm-testimonials-main .item .item-text p							{ .smallsize; }
+
+.elm-job-offers-main .item-duration					{ .littlesize; }
+.elm-job-offers-main .item-excerpt					{ .smallsize; }
+.elm-job-offers-main .job-contact					{ .littlesize; }
+
+
+.post-type-archive-ait-job-offer .elm-item-organizer-container {
+	.item-title h3 	{ .h4size; }
+	.item-duration	{ .littlesize; }
+	.job-contact	{ .littlesize; }
+	.item-excerpt	{ .cropLittleSize; .littlesize; }
+}
+
+
+.elm-faq .faq-question .faq-q					{ .smallsize; }
+.elm-faq-main .faq-question .faq-q:before 		{ font-size: 15px; line-height: 25px; }
+
+.elm-toggles-main .ait-tabs ul.ait-tabs-nav li		{ .bodysize; }
+.elm-toggles-main .ait-tabs ul.ait-tabs-nav li		{ .bodysize; }
+
+.elm-toggles-main .ait-tabs-vertical ul.ait-tabs-nav li a,
+.elm-toggles-main .ait-tabs-vertical li .ait-tab-hover { .decsize; }
+
+.elm-toggles-main .toggle-title 					{ .decsize; }
+.elm-toggles-main .ait-tabs .tabs-wrapper .selected	{ .h5size; }
+.local-toggles .toggle-header .toggle-title			{ .h6size; }
+.local-toggles .toggle-content .toggle-container	{ .bodysize; }
+
+.elm-toggles-main .responsive-tabs-select 			{ .h5size; }
+.elm-toggles-main .responsive-tabs-select option 	{ .decsize; }
+
+.elm-price-table .table-header .table-description	{ .littlesize; }
+.elm-price-table .table-header .table-price			{ font-size: -webkit-calc(~"32px + 1vw"); font-size: calc(~"32px + 1vw"); line-height: 1; }
+.elm-price-table .table-header .table-subtitle		{ .decsize;}
+.elm-price-table .table-button a					{ .bodysize; }
+.elm-price-table .table-body .table-row 			{ .bodysize; }
+
+.elm-price-table-main .table-featured .table-header:after 		{ font-size: 24px; line-height: 57px; }
+
+.elm-opening-hours-main .hours-note					{ .smallsize; }
+
+.elm-counters-main .counter-description						{ .smallsize; }
+
+.elm-ait-item-extension-main h2 					{ .h5size; }
+.elm-ait-item-extension-main .field-title h5 		{ .bodysize; }
+
+
+
+.gallery .gallery-caption		{ .littlesize; }
+
+.carousel-bottom-arrows .carousel-nav-text		{ font-size: 12px; line-height: 22px; }
+
+
+/* Blog */
+
+.hentry .entry-date					{ .smallsize; }
+.hentry .entry-title h2				{ .h4size; }
+.hentry .categories a,
+.hentry .tags a						{ .littlesize; }
+.hentry .entry-footer				{ .littlesize; }
+
+.single-post {
+	.comments-link 					{ .decsize; }
+	.comments-link .comments-number { .h5size; }
+	.entry-footer.single .categories:after { .decsize; }
+	.entry-footer.single .tags 			{ .decsize; }
+
+	.author-link-wrap { .littlesize; }
+
+}
+
+/* Pagination */
+
+.nav-single,
+.nav-pagination { .smallsize; }
+
+.author-info .author-description h2 { .h4size; }
+.author-info .author-description p { .littlesize; }
+
+.comments-title 	{ .h4size; }
+.comment-meta a,
+.comment-tools a 	{ .littlesize; }
+
+#respond h3 		{ .h4size; }
+#respond h3	small	{ .littlesize; line-height: 24px; }
+#respond form p 	{ .littlesize; }
+#respond h3:before 	{ .h3size; }
+#respond form label 			{ font-size: @litSize; line-height: 38px; }
+#respond form label:last-child 	{ line-height: normal; }
+#respond p.logged-in-as a	{ .littlesize; }
+
+.widget-container						{ .widgetsize; }
+.widget-container .widget-title h3		{ .smallsize; }
+.widget_rss .widget-title 				{ .smallsize; }
+
+.widget_posts h4						{ .bodysize; line-height: 20px; }
+.widget_posts .date						{ .littlesize; }
+.widget_posts p							{ .littlesize; }
+.widget_posts .read-more				{ .littlesize; }
+.widget_calendar table 					{ .littlesize; }
+.widget_recent_entries .post-date		{ .smallsize; }
+.widget_rss	.rss-date					{ .smallsize; }
+.widget_rss .rssSummary					{ .smallsize; }
+.widget_rss cite						{ .smallsize; }
+.widget_categories,
+.widget_archive,
+.widget_tag_cloud	{ li, .tagcloud a	{ font-size: 11px !important; line-height: 20px !important; } } 	/*** for button layout - optional ***/
+
+/* Widget login */
+
+.widget_login {
+	.userlogin-tabs-contents {
+		.input-username input,
+		.login-username input,
+		.input-email input,
+		.login-password input,
+		.input-captcha input,
+		.input-role .sbHolder .sbSelector,
+		.input-payment .sbHolder .sbSelector { font-size: 13px; line-height: 34px; }
+
+		.input-role .sbHolder .sbOptions,
+		.input-payment .sbHolder .sbOptions { font-size: 13px; }
+	}
+
+
+	.user-logged-in p { .littlesize; }
+
+	input[type="submit"] { .decsize; }
+	.lost-password { .decsize; }
+}
+
+/* Footer Widgets */
+
+.site-footer		{ .littlesize; }
+.footer-widgets 	{ .littlesize; }
+
+
+.site-search label .screen-reader-text	{ .searchLabelSize; }
+.site-search input.search-field			{ .searchSize; }
+.widget_search input.search-field		{ .searchSize; }
+
+.elm-items-info-main .infobox			{ .littlesize; }
+
+
+
+/* Custom Theme Content */
+
+.widget_items h4,
+.widget_newest_item h4			{ .h6size; }
+.widget_items .content,
+.widget_newest_item .content	{ .smallsize; }
+
+
+
+/* ============ */
+/* = ELEMENTS = */
+/* ============ */
+
+
+.elm-items-info .info-count { font-size: 16px; line-height: 32px; }
+
+
+/* =========================== */
+/* = PAGE TITLE SOCIAL ICONS = */
+/* =========================== */
+
+.page-title-social {
+	i 			{ font-size: 17px; line-height: 36px; }
+	.share-text { font-size: 11px; line-height: 20px; }
+}
+
+.tax-ait-items .page-title .entry-title-wrap .cat-icon,
+.tax-ait-locations .page-title .entry-title-wrap .cat-icon,
+.single-ait-item .page-title .entry-title-wrap .cat-icon,
+.tax-ait-events-pro .page-title .entry-title-wrap .cat-icon { .clearSize; }
+
+
+/* ======== */
+/* = ITEM = */
+/* ======== */
+
+.single-ait-item {
+	.elm-opening-hours-main,
+	.address-container,
+	.elm-claim-listing-main {
+		h2 { .h5size; }
+		h2:after { font-size: 30px; line-height: 30px; }
+	}
+
+	.address-data	{ .dectxtsize; }
+
+	.review-stars-container .review-stars 			{ font-size: 14px !important; line-height: 36px; }
+}
+
+.contact-owner-container a 					{ .decsize; }
+.contact-owner-popup-form .input-container .input-helper { .smallsize; }
+
+.ait-get-directions-button a.ait-sc-button 	{ .bodysize; }
+.address-name h5 							{ .bodysize; line-height: 30px; }
+
+.features-container {
+	.feature-data > h4 			{ font-size: 14px; line-height: 22px; }
+	.feature-desc > p 			{ font-size: 12px; line-height: 20px; }
+	.feature-icon				{ line-height: 22px; }
+}
+
+#claim-listing-form .input-helper { .smallsize; }
+
+.reviews-container {
+	.reviews-form h2		{ .h3size; }
+	h3						{ .h5size; }
+	.review-actions button 	{ .decsize; }
+	.review-rating-question { .smallsize; }
+	.review-rating-stars	{ .smallsize; }
+	.review-name			{ .largesize; /* 16px */ }
+	.review-time			{ .smallsize; }
+	.review-container p 	{ .bodysize; }
+	.review-detail .input-helper { .smallsize; }
+}
+
+.review-stars-container 	{ font-size: 12px; line-height: 20px; }
+
+.reviews-ajax-container 	{ .smallsize; }
+	.reviews-ajax-icon .fa 	{ font-size: 16px; line-height: 22px; }
+
+/* Item extension */
+
+.item-extension-container {
+	& > p			{ .decsize(); }
+	.field-title h5 { font-size: 13px; line-height: 22px; }
+	.field-data p 	{ font-size: 14px; line-height: 22px; }
+}
+
+/* Get Directions */
+
+.directions-form .input-container-checkbox,
+.directions-form .input-container.type-number label	{ .littlesize; line-height: 26px; }
+
+/* ================= */
+/* = ELEMENT TAXONOMT LIST = */
+/* ================= */
+
+.elm-taxonomy-list-main.layout-icon .elm-taxonomy-list-wrapper {
+	.item-title h3 { .decsize; }
+}
+
+.item-image a.main-link span { .h5size; }
+
+
+.elm-taxonomy-list-main .elm-taxonomy-list-wrapper .elm-taxonomy-list .layout-box {
+	.item-title h3 { .h3size; }
+}
+
+.elm-taxonomy-list-main .elm-taxonomy-list-wrapper .elm-taxonomy-list .layout-list {
+	.item-title h3 { .h5size; }
+}
+
+/**************************************************/
+/*** && ECWID STORE                             ***/
+/**************************************************/
+
+@import "ecwid/ecwid-fontsize.less";
+
+/* && end of ECWID STORE */
+
+
+/* EVENTS PRO */
+
+.single-ait-event-pro {
+
+	.address-container .address-gps { .bodysize; }
+	.address-data p 				{ .bodysize; line-height: 22px; }
+
+	#ics-export-button 				{ .bodysize; }
+	#ics-export-button span 		{ .bodysize; }
+
+	.date-text.data-content 					{ .bodysize; }
+	.date-text.data-content .event-cell strong  { .decsize; }
+	.date-text.data-content .event-cell.odd strong 	{ .h4size; }
+
+	/* Fees */
+	.fee-container.data-container {
+		.fee-label 	{ .bodysize; }
+		.fee-desc 	{ .littlesize; }
+	}
+
+	/* Categories */
+	.event-taxonomy-icon-wrap 	{ .smallsize; }
+
+	/* Recurring Dates */
+
+	.recurring-dates-container	{
+		.single-date .date	.day	{ .h4size; line-height: 20px; }
+		.single-date .date	.month	{ .littlesize; }
+
+		.event-calendar.fc .fc-axis 			{ .h6size; }
+		.event-calendar.fc .fc-axis.fc-time 	{ .bodysize; }
+		.event-calendar .fc .fc-basic-view th 	{ .bodysize; }
+		.event-calendar .fc-day-number 			{ .littlesize; }
+
+		.fc-day-grid-event .fc-time,
+		.fc-time-grid-event .fc-time 			{ .littlesize; }
+	}
+
+	.organizer-container .text-content	{ .dectxtsize; }
+	.organizer-container .data-content	{ .smallsize; }
+}
+	/* Category page */
+
+	.items-container .event-container h3 			{ font-size: @h4Size - 2; .lineHeight(@h4Size - 2, @titLineDim); }
+	.items-container .event-container .item-excerpt { .littlesize; }
+
+	/* Events Element & Container */
+
+	.elm-events-pro .item,
+	.items-container .event-container {
+		.entry-date			{ font-size: @smlSize; line-height: 1.65; }
+
+		.item-excerpt 	{ .littlesize; }
+		.more 			{ .littlesize; }
+	}
+
+	/* Box Layout & Container */
+
+	.elm-events-pro .layout-box .item,
+	.items-container .event-container {
+		.entry-date	.day 	{ font-size: 20px; line-height: 21px; }
+		.entry-date .month 	{ .littlesize; }
+		.entry-date .year 	{ .littlesize; }
+		.item-location		{ .decsize; }
+	}
+
+	/* Events Element List Layout */
+
+	.elm-events-pro .layout-list .item .list-footer .more { .littlesize; }
+	.elm-events-pro .layout-list .item .item-location a { .littlesize; }
+
+
+/* && end of EVENTS PRO */
+
+/**************************************************/
+/*** && SPECIAL OFFERS PLUGIN                   ***/
+/**************************************************/
+
+@import "plugins/special-offers-fontsize.less";
+
+/* && end of SPECIAL OFFERS PLUGIN */
+
+/**************************************************/
+/*** && WOOCOMMERCE                             ***/
+/**************************************************/
+
+@import "woocommerce/woo-fontsize.less";
+
+/* && end of WOOCOMMERCE */

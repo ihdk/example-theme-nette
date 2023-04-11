@@ -1,0 +1,24 @@
+
+@import "../../../@common/common.less";
+
+#@{el}-main.fullsize #@{el} .google-map-container		{ border-left-width: 0px; border-right-width: 0px; }
+#@{el}-main.fullsize #@{el} .leaflet-map-container		{ border-left-width: 0px; border-right-width: 0px; }
+
+#@{el}{
+
+	.border(@borderWidth) when (iscolor(@borderColor)) 	{ border: @borderWidth solid @borderColor; }
+	.google-map-container								{ .border(3px); }
+	.leaflet-map-container								{ .border(3px); }
+	.ait-leaflet-marker-icon img {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+
+}
+
+.@{el}{
+	clear:both;
+}
